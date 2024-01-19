@@ -19,6 +19,15 @@ const skills = [
 const happy = true;
 const finished = false;
 const goal = 3;
+const skillColor = "navy";
+const nameColor="goldenrod";
+const mayusculas="uppercase";
+import '../styles/global.css';
+
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+
 ---
 
 <html lang="en">
@@ -28,18 +37,32 @@ const goal = 3;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
+        <style define:vars={{skillColor,nameColor,mayusculas}}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: bold;
+            }
+            .nombre{
+                color: var(--nameColor);
+            }
+            li {
+                text-transform: var(--mayusculas);
+            }
+        </style>
     </head>
     <body>
-        <a href="/">Inicio</a>
-        <a href="/about/">Sobre mi</a>
-        <a href="/blog/">blog</a>
+       <Navigation/>
 
         <h1>Mi sitio Astro</h1>
         <h2>Mi nombre es {identity.firstName}</h2>
         <p>y este es el tutorial con astro</p>
         <p>He aquí algunos datos sobre mí:</p>
         <ul>
-            <li>Me llamo {identity.firstName}.</li>
+            <li class="nombre">Me llamo {identity.firstName}.</li>
             <li>
                 Vivo en {identity.country} y trabajo como {identity.occupation}.
             </li>
@@ -54,7 +77,7 @@ const goal = 3;
         </ul>
         <p>Mis habilidades son:</p>
         <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
         {happy && <p>¡Estoy feliz de aprender Astro!</p>}
 
@@ -67,5 +90,6 @@ const goal = 3;
                 <p>Mi objetivo no son 3 días.</p>
             )
         }
+        <Footer />
     </body>
 </html>
