@@ -1,25 +1,32 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
-
-const pageTitle = "Página de inicio";
+import '../styles/global.css';
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <Footer />
-    <script>
-          import "../scripts/menu.js";
-    </script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Forja Enana</title>
+</head>
+<body>
+  <header>
+    <h1>La Forja Enana</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">Sobre mi</a></li>
+        <li><a href="#">Armas</a></li>
+        <li><a href="#">Armaduras</a></li>
+        <li><a href="#">Relatos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Bienvenidos a La Forja Enana</h2>
+    <p>Explorad nuestro nuevo blog dedicado a las antiguas tradiciones artesanas de los enanos. Aquí encontraréis tutoriales, guías y leyendas en torno a la forja del acero, la herrería y la joyería.</p>
+  </main>
+</body>
 </html>

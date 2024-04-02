@@ -1,32 +1,55 @@
 ---
-import Header from '../components/Header.astro';
 import '../styles/global.css';
-
-
+const posts = [
+  {
+    title: 'La Forja Enana: Un nuevo comienzo',
+    slug: 'post-1',
+    description: 'Inauguramos nuestro blog dedicado a Dungeons & Dragons con una entrada que explora el origen de los enanos artesanos.'
+  },
+  {
+    title: 'El Gremio de Armeros: Guía de elaboración de armaduras',
+    slug: 'post-2',
+    description: '¡No te pierdas nuestra guía definitiva sobre la forja de las armaduras más resistentes de Faerûn!'
+  },
+  {
+    title: 'Relatos de las Fraguas Enanas: Las Hachas Gemelas de Thundragil',
+    slug: 'post-3',
+    description: 'En esta ocasión, te contamos la leyenda de la creación de un mítico par de hachas de guerra'
+  }
+]
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-        <Header />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - La Forja Enana</title>
+</head>
+<body>
+  <header>
+    <h1>La Forja Enana</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="#">Armas</a></li>
+        <li><a href="#">Armaduras</a></li>
+        <li><a href="#">Relatos</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      
-        <h1>Mi sitio Astro</h1>
-        <h1>Mi blog de Astro aprendizaje</h1>
-        <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
-        <ul>
-            <li><a href="/posts/post-1/">Publicación 1</a></li>
-            <li><a href="/posts/post-2/">Publicación 2</a></li>
-            <li><a href="/posts/post-3/">Publicación 3</a></li>
-          </ul>
-      </body>
-      <script>
-        import "../scripts/menu.js";
-  </script>
+  <main>
+    <h2>Últimas entradas del blog</h2>
+    <ul>
+      {posts.map(post => (
+        <li>
+          <a href={`/posts/${post.slug}`}>{post.title}</a>
+          <p>{post.description}</p>
+        </li>
+      ))}
+    </ul>
+  </main>
+</body>
 </html>

@@ -1,98 +1,84 @@
 ---
-const pageTitle = "Sobre mi";
-const identity = {
-    firstName: "Husky",
-    country: "Spain",
-    occupation: "Developer",
-    hobbies: ["fotografia", "observación de aves", "peñarol"],
-};
-
-const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Astro",
-    "Redacción de documentos",
-];
-
-const happy = true;
-const finished = false;
-const goal = 3;
-const skillColor = "navy";
-const nameColor="goldenrod";
-const mayusculas="uppercase";
 import '../styles/global.css';
-
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
-
+const identity = {
+ firstName: 'Gorbash',
+ realm: 'Khaz Modan',
+ occupation: 'Herrero Maestro',
+ hobbies: ['herrería', 'recopilar pergaminos', 'contar leyendas']
+};
+const skills = [
+ 'Forja de Acero',
+ 'Orfebrería',
+ 'Talla de Piedra',
+ 'Encantamientos',
+ 'Redacción de Crónicas'
+];
+const happy = true;
+const goal = "Revivir las tradiciones artesanas enanas";
+const skillColor = 'navy';
+const nameColor = 'goldenrod';
+const mayusculas = 'uppercase';
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <style define:vars={{skillColor,nameColor,mayusculas}}>
-            h1 {
-                color: purple;
-                font-size: 4rem;
-            }
-            .skill {
-                color: var(--skillColor);
-                font-weight: bold;
-            }
-            .nombre{
-                color: var(--nameColor);
-            }
-            li {
-                text-transform: var(--mayusculas);
-            }
-        </style>
-    </head>
-    <body>
-       <Header/>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sobre Mí - La Forja Enana</title>
+ <style define:vars={{skillColor, nameColor, mayusculas}}>
+   h1 {
+     color: #6d4d2a;
+     font-size: 3rem;
+   }
+   .skill {
+     color: var(--skillColor);
+     font-weight: bold;
+   }
+   .nombre {
+     color: var(--nameColor);
+   }
+   li {
+     text-transform: var(--mayusculas);
+   }
+ </style>
+</head>
+<body>
+ <header>
+   <h1>La Forja Enana</h1>
+   <nav>
+     <ul>
+       <li><a href="/">Inicio</a></li>
+       <li><a href="/blog">Blog</a></li>
+       <li><a href="/armas">Armas</a></li>
+       <li><a href="/armaduras">Armaduras</a></li>
+       <li><a href="/relatos">Relatos</a></li>
+     </ul>
+   </nav>
+ </header>
 
-        <h1>Mi sitio Astro</h1>
-        <h2>Mi nombre es {identity.firstName}</h2>
-        <p>y este es el tutorial con astro</p>
-        <p>He aquí algunos datos sobre mí:</p>
-        <ul>
-            <li class="nombre">Me llamo {identity.firstName}.</li>
-            <li>
-                Vivo en {identity.country} y trabajo como {identity.occupation}.
-            </li>
-            {
-                identity.hobbies.length >= 2 && (
-                    <li>
-                        Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
-                        {identity.hobbies[1]}
-                    </li>
-                )
-            }
-        </ul>
-        <p>Mis habilidades son:</p>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
-        {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+ <main>
+   <h2>Sobre Gorbash Batleforjador</h2>
+   <p>¡Saludos, hermanos enanos y amigos de la superficie! Permitidme presentarme:</p>
+   <ul>
+     <li class="nombre">Me llamo {identity.firstName} Batleforjador.</li>
+     <li>Vivo en las Profundidades de {identity.realm} y soy un {identity.occupation}.</li>
+     {identity.hobbies.length >= 2 && (
+       <li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+     )}
+   </ul>
 
-        {finished && <p>¡He terminado este tutorial!</p>}
+   <p>A lo largo de mis años he cultivado estas habilidades:</p>
+   <ul>
+     {skills.map(skill => <li class="skill">{skill}</li>)}
+   </ul>
 
-        {
-            goal === 3 ? (
-                <p>Mi objetivo es terminar en 3 días.</p>
-            ) : (
-                <p>Mi objetivo no son 3 días.</p>
-            )
-        }
-        <Footer />
-        <script>
-            import "../scripts/menu.js";
-      </script>
-    </body>
+   {happy && <p>¡Estoy feliz de compartir mi sabiduría en este humilde blog!</p>}
+   <p>Mi objetivo es {goal}.</p>
+ </main>
+
+ <footer>
+   <p>&copy; La Forja Enana {new Date().getFullYear()}</p>
+ </footer>
+</body>
 </html>
